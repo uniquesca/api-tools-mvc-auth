@@ -1,5 +1,4 @@
-Laminas MVC Auth
-===========
+# Laminas MVC Auth
 
 > This is the Uniquesca fork of
 > [laminas-api-tools/api-tools-mvc-auth](https://github.com/laminas-api-tools/api-tools-mvc-auth).
@@ -21,8 +20,7 @@ Laminas MVC Auth
 >
 > You trust us enough to use our software. We ask that you trust us to say the truth on this. We need your help. Go out and protest this unnecessary war. Stop the bloodshed. Say "stop the war!"
 
-Introduction
-------------
+## Introduction
 
 `api-tools-mvc-auth` is a Laminas module that adds services, events, and configuration that extends the base
 Laminas MVC lifecycle to handle authentication and authorization.
@@ -34,13 +32,11 @@ Server](https://github.com/bshaffer/oauth2-server-php)).
 For authorization, this particular module delivers a pre-dispatch time listener that will
 identify if the given route match, along with the HTTP method, is authorized to be dispatched.
 
-Requirements
-------------
+## Requirements
 
 Please see the [composer.json](composer.json) file.
 
-Installation
-------------
+## Installation
 
 Run the following `composer` command:
 
@@ -61,7 +57,6 @@ And then run `composer update` to ensure the module is installed.
 Finally, add the module name to your project's `config/application.config.php` under the `modules`
 key:
 
-
 ```php
 return [
     /* ... */
@@ -73,8 +68,7 @@ return [
 ];
 ```
 
-Configuration
--------------
+## Configuration
 
 ### User Configuration
 
@@ -307,7 +301,7 @@ reverse proxy, you will not be affected by this issue.
 
 #### Sub-Key: Controller Service Name
 
-Under the `authorization` key is an array of _controller service name_ keyed authorization
+Under the `authorization` key is an array of *controller service name* keyed authorization
 configuration settings.  The structure of these arrays depends on the type of the controller
 service that you're attempting to grant or restrict access to.
 
@@ -319,8 +313,8 @@ For [api-tools-rest](https://github.com/laminas-api-tools/api-tools-rest)-based 
 array*.
 
 A **permission array** consists of a keyed array of either `default` or an HTTP method.  The
-values for each of these will be a boolean value where `true` means _an authenticated user
-is required_ and where `false` means _an authenticated user is *not* required_.  If an action
+values for each of these will be a boolean value where `true` means *an authenticated user
+is required* and where `false` means *an authenticated user is **not** required*.  If an action
 or HTTP method is not idendified, the `default` value will be assumed.  If there is no default,
 the behavior of the `deny_by_default` key (discussed above) will be assumed.
 
@@ -384,8 +378,7 @@ function:
 
 These services will be described in the events and services section.
 
-Laminas Events
-----------
+## Laminas Events
 
 ### Events
 
@@ -453,10 +446,9 @@ This listener is attached to the `MvcAuth::EVENT_AUTHENTICATION_POST` with a pri
 It is primarily responsible for creating and persisting a special name in the current event
 for api-tools-rest-based controllers when used in conjunction with `api-tools-rest` module.
 
-Laminas Services
-------------
+## Laminas Services
 
-#### Controller Plugins
+### Controller Plugins
 
 This module exposes the controller plugin `getIdentity()`, mapping to
 `Laminas\ApiTools\MvcAuth\Identity\IdentityPlugin`. This plugin will return the identity discovered during
@@ -465,7 +457,7 @@ identity is present in the `MvcEvent`, or the identity present is not an instanc
 `Laminas\ApiTools\MvcAuth\Identity\IdentityInterface`, an instance of `Laminas\ApiTools\MvcAuth\Identity\GuestIdentity` will be
 returned.
 
-#### Event Listener Services
+### Event Listener Services
 
 The following services are provided and serve as event listeners:
 
@@ -487,7 +479,6 @@ This is an instance of `Laminas\Authentication\Adapter\Http`.
 
 This is an instance of `Laminas\ApiTools\MvcAuth\Authorization\AclAuthorization`, which in turn is an extension
 of `Laminas\Permissions\Acl\Acl`.
-
 
 #### Laminas\ApiTools\MvcAuth\ApacheResolver
 
