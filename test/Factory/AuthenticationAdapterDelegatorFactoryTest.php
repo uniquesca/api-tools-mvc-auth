@@ -19,6 +19,12 @@ class AuthenticationAdapterDelegatorFactoryTest extends TestCase
     /** @var ServiceManager */
     private $services;
 
+    /** @var DefaultAuthenticationListener */
+    private $listener;
+
+    /** @var callable():DefaultAuthenticationListener */
+    private $callback;
+
     public function setUp(): void
     {
         // Actual service manager instance, as multiple services may be

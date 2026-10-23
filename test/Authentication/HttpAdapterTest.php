@@ -19,6 +19,18 @@ use PHPUnit\Framework\TestCase;
 
 class HttpAdapterTest extends TestCase
 {
+    /** @var AuthenticationService */
+    private $authentication;
+
+    /** @var HttpRequest */
+    private $request;
+
+    /** @var HttpResponse */
+    private $response;
+
+    /** @var MvcAuthEvent */
+    private $event;
+
     public function setUp(): void
     {
         // authentication service

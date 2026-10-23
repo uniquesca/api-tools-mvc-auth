@@ -32,7 +32,7 @@ class ModuleTest extends TestCase
     use EventListenerIntrospectionTrait;
     use ProphecyTrait;
 
-    protected function createApplication(ServiceManager $services, EventManagerInterface $events): Application
+    protected static function createApplication(ServiceManager $services, EventManagerInterface $events): Application
     {
         $r = new ReflectionMethod(Application::class, '__construct');
         if ($r->getNumberOfRequiredParameters() === 2) {
@@ -45,7 +45,7 @@ class ModuleTest extends TestCase
     }
 
     /** @psalm-param array<string, mixed> $config */
-    protected function createServiceManager(array $config): ServiceManager
+    protected static function createServiceManager(array $config): ServiceManager
     {
         if (method_exists(ServiceManager::class, 'configure')) { // v3
             // laminas-servicemanager v3
@@ -77,21 +77,21 @@ class ModuleTest extends TestCase
      *     3: EventManager
      * }>
      */
-    public function expectedListeners(): array
+    public static function expectedListeners(): array
     {
         $module   = new Module();
         $config   = $module->getConfig();
-        $request  = $this->prophesize(Request::class)->reveal();
-        $response = $this->prophesize(Response::class)->reveal();
+        $request  = new Request();
+        $response = new Response();
 
-        $services = $this->createServiceManager($config);
+        $services = self::createServiceManager($config);
         $services->setService('Request', $request);
         $services->setService('Response', $response);
         $services->setService('config', $config);
 
         $events = new EventManager();
 
-        $application = $this->createApplication($services, $events);
+        $application = self::createApplication($services, $events);
 
         $mvcEvent = new MvcEvent(MvcEvent::EVENT_BOOTSTRAP);
         $mvcEvent->setApplication($application);

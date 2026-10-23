@@ -1,5 +1,5 @@
 {
-    "name": "laminas-api-tools/api-tools-mvc-auth",
+    "name": "uniquesca/api-tools-mvc-auth",
     "description": "Laminas Module providing Authentication and Authorization events and infrastructure",
     "license": "BSD-3-Clause",
     "keywords": [
@@ -7,12 +7,12 @@
         "api-tools",
         "module"
     ],
-    "homepage": "https://api-tools.getlaminas.org",
+    "homepage": "https://github.com/uniquesca/api-tools-mvc-auth",
     "support": {
         "docs": "https://api-tools.getlaminas.org/documentation",
-        "issues": "https://github.com/laminas-api-tools/api-tools-mvc-auth/issues",
-        "source": "https://github.com/laminas-api-tools/api-tools-mvc-auth",
-        "rss": "https://github.com/laminas-api-tools/api-tools-mvc-auth/releases.atom",
+        "issues": "https://github.com/uniquesca/api-tools-mvc-auth/issues",
+        "source": "https://github.com/uniquesca/api-tools-mvc-auth",
+        "rss": "https://github.com/uniquesca/api-tools-mvc-auth/releases.atom",
         "chat": "https://laminas.dev/chat",
         "forum": "https://discourse.laminas.dev"
     },
@@ -22,7 +22,7 @@
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "platform": {
-            "php": "8.0.99"
+            "php": "8.2.99"
         }
     },
     "extra": {
@@ -31,10 +31,7 @@
         }
     },
     "require": {
-        "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
-        "laminas-api-tools/api-tools-api-problem": "^1.5.0",
-        "laminas-api-tools/api-tools-content-negotiation": "^1.8.0",
-        "laminas-api-tools/api-tools-oauth2": "^1.9",
+        "php": "~8.2.0 || ~8.3.0",
         "laminas/laminas-authentication": "^2.5.3",
         "laminas/laminas-eventmanager": "^3.2",
         "laminas/laminas-http": "^2.5.4",
@@ -43,15 +40,18 @@
         "laminas/laminas-permissions-rbac": "^2.6.0 || ^3.0",
         "laminas/laminas-servicemanager": "^3.11",
         "laminas/laminas-stdlib": "^2.7.8 || ^3.0.1",
-        "laminas/laminas-zendframework-bridge": "^1.1"
+        "laminas/laminas-zendframework-bridge": "^1.1",
+        "uniquesca/api-tools-api-problem": "^2.0.0",
+        "uniquesca/api-tools-content-negotiation": "^2.0.0",
+        "uniquesca/api-tools-oauth2": "^2.0.0"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~2.3.0",
         "laminas/laminas-session": "^2.8.5",
-        "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.5.10",
-        "psalm/plugin-phpunit": "^0.16.0",
-        "vimeo/psalm": "^4.7"
+        "phpspec/prophecy-phpunit": "^2.2",
+        "phpunit/phpunit": "^10.5",
+        "psalm/plugin-phpunit": "^0.19.2",
+        "vimeo/psalm": "^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -74,7 +74,22 @@
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/uniquesca/api-tools-api-problem"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/uniquesca/api-tools-content-negotiation"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/uniquesca/api-tools-oauth2"
+        }
+    ],
     "replace": {
+        "laminas-api-tools/api-tools-mvc-auth": "^1.10",
         "zfcampus/zf-mvc-auth": "^1.5.1"
     }
 }

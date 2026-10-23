@@ -1,7 +1,9 @@
 Laminas MVC Auth
 ===========
 
-[![Build Status](https://github.com/laminas-api-tools/api-tools-mvc-auth/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/laminas-api-tools/api-tools-mvc-auth/actions/workflows/continuous-integration.yml)
+> This is the Uniquesca fork of
+> [laminas-api-tools/api-tools-mvc-auth](https://github.com/laminas-api-tools/api-tools-mvc-auth).
+> It replaces the original package, so other `laminas-api-tools/*` packages depending on it keep working.
 
 > ## 🇷🇺 Русским гражданам
 >
@@ -34,7 +36,7 @@ identify if the given route match, along with the HTTP method, is authorized to 
 
 Requirements
 ------------
-  
+
 Please see the [composer.json](composer.json) file.
 
 Installation
@@ -43,14 +45,14 @@ Installation
 Run the following `composer` command:
 
 ```console
-$ composer require "laminas-api-tools/api-tools-mvc-auth"
+$ composer require "uniquesca/api-tools-mvc-auth"
 ```
 
 Alternately, manually add the following to your `composer.json`, in the `require` section:
 
 ```javascript
 "require": {
-    "laminas-api-tools/api-tools-mvc-auth": "^1.4"
+    "uniquesca/api-tools-mvc-auth": "^2.0"
 }
 ```
 
@@ -265,10 +267,10 @@ Example:
 
 > ##### deny_by_default with api-tools-oauth2
 >
-> When using `deny_by_default => true` with > [api-tools-oauth2](https://github.com/laminas-api-tools/api-tools-oauth2),
+> When using `deny_by_default => true` with > [api-tools-oauth2](https://github.com/uniquesca/api-tools-oauth2),
 > you will need to explicitly allow POST on the OAuth2 controller in order for Authentication
 > requests to be made.
-> 
+>
 > As an example:
 >
 > ```php
@@ -489,8 +491,8 @@ of `Laminas\Permissions\Acl\Acl`.
 
 #### Laminas\ApiTools\MvcAuth\ApacheResolver
 
-This is an instance of `Laminas\Authentication\Adapter\Http\ApacheResolver`. 
-You can override the ApacheResolver with your own resolver by providing a custom factory. 
+This is an instance of `Laminas\Authentication\Adapter\Http\ApacheResolver`.
+You can override the ApacheResolver with your own resolver by providing a custom factory.
 
 #### Laminas\ApiTools\MvcAuth\FileResolver
 

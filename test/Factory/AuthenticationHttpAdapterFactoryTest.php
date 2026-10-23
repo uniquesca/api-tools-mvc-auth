@@ -9,10 +9,14 @@ use Laminas\ApiTools\MvcAuth\Factory\AuthenticationHttpAdapterFactory;
 use Laminas\Authentication\AuthenticationService;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class AuthenticationHttpAdapterFactoryTest extends TestCase
 {
+    /** @var ServiceLocatorInterface&MockObject */
+    private $services;
+
     public function setUp(): void
     {
         $this->services = $this->getMockBuilder(ServiceLocatorInterface::class)->getMock();
@@ -31,7 +35,7 @@ class AuthenticationHttpAdapterFactoryTest extends TestCase
     }
 
     /** @psalm-return array<string, array{0: array<array-key, mixed>}> */
-    public function invalidConfiguration(): array
+    public static function invalidConfiguration(): array
     {
         return [
             'empty'  => [[]],
@@ -67,7 +71,7 @@ class AuthenticationHttpAdapterFactoryTest extends TestCase
      *     1: string[]
      * }>
      */
-    public function validConfiguration(): array
+    public static function validConfiguration(): array
     {
         return [
             'basic'  => [

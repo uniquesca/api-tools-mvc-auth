@@ -13,10 +13,17 @@ use Laminas\Http\Response as HttpResponse;
 use OAuth2\Request as OAuth2Request;
 use OAuth2\Response as OAuth2Response;
 use OAuth2\Server as OAuth2Server;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class OAuth2AdapterTest extends TestCase
 {
+    /** @var OAuth2Server&MockObject */
+    private $oauthServer;
+
+    /** @var OAuth2Adapter */
+    private $adapter;
+
     public function setUp(): void
     {
         $this->oauthServer = $this->getMockBuilder(OAuth2Server::class)->getMock();

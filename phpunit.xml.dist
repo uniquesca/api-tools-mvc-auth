@@ -4,11 +4,11 @@
     bootstrap="./vendor/autoload.php"
     colors="true"
     xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd">
-  <coverage processUncoveredFiles="true">
+  <source>
     <include>
       <directory suffix=".php">src</directory>
     </include>
-  </coverage>
+  </source>
   <testsuites>
     <testsuite name="Laminas MvcAuth Module Tests">
       <directory>./test</directory>
